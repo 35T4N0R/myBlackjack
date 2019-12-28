@@ -16,24 +16,25 @@ using System.Windows.Shapes;
 namespace Blackjack
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy MenuPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MenuPage : Page
     {
-
-
-
-        public MainWindow()
+        public MenuPage()
         {
             InitializeComponent();
-            MainFrame.Content = new MenuPage();
-
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void playButton_Click(object sender, RoutedEventArgs e)
         {
-            if (Mouse.LeftButton == MouseButtonState.Pressed)
-                this.DragMove();
+            MainWindow mw =(MainWindow) Application.Current.MainWindow;
+            //MainWindow mw = new MainWindow();
+            mw.MainFrame.Content = new GamePage();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
