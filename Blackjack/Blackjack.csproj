@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico</ApplicationIcon>
+    <ApplicationIcon>images\Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,10 +61,17 @@
     <Compile Include="AuthorPage.xaml.cs">
       <DependentUpon>AuthorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BettingPage.xaml.cs">
+      <DependentUpon>BettingPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RulesPage.xaml.cs">
       <DependentUpon>RulesPage.xaml</DependentUpon>
     </Compile>
     <Page Include="AuthorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BettingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,7 +148,7 @@
     <Resource Include="back.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico" />
+    <Resource Include="images\Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

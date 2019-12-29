@@ -40,8 +40,8 @@ namespace Blackjack
         {
             InitializeComponent();
 
-            Money.Content = "Your money : \n 69696";
-            Bet.Content = " Your bet : \n 111";
+            Money.Content = "Twoje saldo : \n";
+            Bet.Content = "Twój zakład : \n";
             List<Image> PlayerImages = new List<Image>() { PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6 };
             List<Image> ComputerImages = new List<Image>() { ComputerCard1, ComputerCard2, ComputerCard3, ComputerCard4, ComputerCard5, ComputerCard6 };
 

@@ -12,8 +12,40 @@
         <Grid.Background>
             <ImageBrush ImageSource="./images/gamebackground.png" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
-        <Label Content="Aplikacja w pełni stworzona przez : " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" Margin="0 0 0 300"/>
-        <Label Name="authorLabel" Content="MICHAŁ ZAORSKI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="75"/>
+        <Label Content="Aplikacja w pełni stworzona przez : " VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="30" Margin="0 0 0 300">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Label.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+        <Label FontFamily="Comic Sans MS" Name="authorLabel" Content="MICHAŁ ZAORSKI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="75">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Label.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
         <Image Cursor="Hand" Source="back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
 
     </Grid>
