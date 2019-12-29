@@ -41,5 +41,10 @@ namespace Blackjack
         {
             mw.MainFrame.Content = new RulesPage();
         }
+
+        private void authorButton_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new AuthorPage();
+        }
     }
 }

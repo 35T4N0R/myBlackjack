@@ -13,13 +13,43 @@
             <ImageBrush ImageSource="./images/gamebackground.png" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
 
-        <Label Name="rulesLabel" Content="Zasady Gry" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <Label Name="rulesLabel" Content="Zasady Gry" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Label.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
 
-        <TextBlock x:Name="rulesTextBlock"  Width="600" Height="300" Foreground="White" FontSize="18"><InlineUIContainer/></TextBlock>
+        <TextBlock x:Name="rulesTextBlock"  Width="600" Height="300" Foreground="White" FontSize="18">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
 
-        <!--<Button x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20">-->
         <Image Cursor="Hand" Source="back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
-        <!--</Button>-->
         
     </Grid>
 </Page>

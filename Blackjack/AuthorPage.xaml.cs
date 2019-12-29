@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace Blackjack
 {
     /// <summary>
-    /// Logika interakcji dla klasy RulesPage.xaml
+    /// Logika interakcji dla klasy AuthorPage.xaml
     /// </summary>
-    public partial class RulesPage : Page
+    public partial class AuthorPage : Page
     {
-        public RulesPage()
+        public AuthorPage()
         {
             InitializeComponent();
-            rulesTextBlock.Text =@"
-1.Aby wygrac musisz spelnic jeden z ponizszych warunkow: 
-    a) wartosc twoich kart musi wynosic dokladnie 21 
-    b) wartosc twoich kart musi byc wieksza od wartosci kart krupiera
-        ale nie przekraczajaca 21 
-2.Przegrywasz w nastepujacych przypadkach:
-    a) gdy wartosc twoich kart przekroczy 21 
-    b) gdy wartosc kart krupiera wynosi 21
-    c) gdy sie poddasz 
-3.Kasyno przyjmuje tylko zaklady bedace wielokrotnoscia 100,
-    np. 100, 200, 1000, 5100, 15900, 30200";
         }
 
         private void backButton_MouseDown(object sender, MouseButtonEventArgs e)
