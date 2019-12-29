@@ -12,8 +12,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="./images/background.jpg" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
-        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Graj" Name="playButton" Width="100" Height="30" FontSize="18" Margin="0 100 0 0" Click="playButton_Click"></Button>
-        <Button Content="Wyjście" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 170 0 0" Click="Button_Click"></Button>
         <Image Source="./images/logo4.png" Stretch="Fill" VerticalAlignment="Center" HorizontalAlignment="Center" Width="600" Height="200" Margin="0 0 0 245"/>
+        <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Graj" Name="playButton" Width="100" Height="30" FontSize="18" Margin="0 100 0 0" Click="playButton_Click"></Button>
+        <Button Name="rulesButton" Content="Zasady" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 170 0 0" Click="rulesButton_Click"></Button>
+        <Button Name="authorButton" Content="Autor" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 240 0 0"></Button>
+        <Button Content="Wyjście" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 310 0 0" Click="Button_Click"></Button>
     </Grid>
 </Page>

@@ -1,0 +1,25 @@
+﻿<Page x:Class="Blackjack.RulesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Blackjack"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RulesPage">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="./images/gamebackground.png" Stretch="UniformToFill"></ImageBrush>
+        </Grid.Background>
+
+        <Label Name="rulesLabel" Content="Zasady Gry" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+
+        <TextBlock x:Name="rulesTextBlock"  Width="600" Height="300" Foreground="White" FontSize="18"><InlineUIContainer/></TextBlock>
+
+        <!--<Button x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20">-->
+        <Image Cursor="Hand" Source="back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
+        <!--</Button>-->
+        
+    </Grid>
+</Page>

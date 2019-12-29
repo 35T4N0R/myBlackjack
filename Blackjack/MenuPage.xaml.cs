@@ -20,6 +20,8 @@ namespace Blackjack
     /// </summary>
     public partial class MenuPage : Page
     {
+        MainWindow mw =(MainWindow) Application.Current.MainWindow;
+        
         public MenuPage()
         {
             InitializeComponent();
@@ -27,14 +29,17 @@ namespace Blackjack
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw =(MainWindow) Application.Current.MainWindow;
-            //MainWindow mw = new MainWindow();
             mw.MainFrame.Content = new GamePage();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void rulesButton_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new RulesPage();
         }
     }
 }
