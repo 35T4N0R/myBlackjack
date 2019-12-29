@@ -30,5 +30,6 @@
         <Button x:Name="pos1000" Content="+1000" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="195 85 0 0" Click="pos1000_Click"></Button>
 
         <Label Name="test" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White"></Label>
+        <Button x:Name="submitBetButton" Content="Zatwierdź zakład" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="325 0 0 0" Click="submitBetButton_Click"></Button>
     </Grid>
 </Page>

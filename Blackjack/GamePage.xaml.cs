@@ -36,16 +36,21 @@ namespace Blackjack
         Boolean czyStand = false;
         Boolean czyStop = false;
         Boolean czyMessage = false;
-        public GamePage()
+        int money = 0;
+        int bet = 0;
+        public GamePage(int money, int bet)
         {
             InitializeComponent();
 
-            Money.Content = "Twoje saldo : \n";
-            Bet.Content = "Twój zakład : \n";
+            this.money = money;
+            this.bet = bet;
+
+            Money.Content = "Twoje saldo : \n" + this.money;
+            Bet.Content = "Twój zakład : \n" + this.bet;
             List<Image> PlayerImages = new List<Image>() { PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6 };
             List<Image> ComputerImages = new List<Image>() { ComputerCard1, ComputerCard2, ComputerCard3, ComputerCard4, ComputerCard5, ComputerCard6 };
 
-            BitmapImage test;
+            BitmapImage cardImage;
 
             for (int i = 0; i < 2; i++)
             {
@@ -62,18 +67,18 @@ namespace Blackjack
                 }
                 _value = numer;
                 _suit = kolory[kolor];
-                test = new BitmapImage();
+                cardImage = new BitmapImage();
 
-                test.BeginInit();
-                test.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
-                test.EndInit();
+                cardImage.BeginInit();
+                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.EndInit();
 
-                PlayerImages[i].Source = test;
+                PlayerImages[i].Source = cardImage;
                 currentPlayer = i;
             }
             for (int i = 0; i < 2; i++)
             {
-                test = new BitmapImage();
+                cardImage = new BitmapImage();
 
 
                 int numer = rnd.Next(1, 13);
@@ -84,11 +89,11 @@ namespace Blackjack
                     ukrytyNumer = numer;
                     ukrytyKolor = kolor;
 
-                    test.BeginInit();
-                    test.UriSource = new Uri("pack://siteoforigin:,,,/karty/computer.png");
-                    test.EndInit();
+                    cardImage.BeginInit();
+                    cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/computer.png");
+                    cardImage.EndInit();
 
-                    ComputerImages[i].Source = test;
+                    ComputerImages[i].Source = cardImage;
                     continue;
                 }
                 if (numer > 10)
@@ -104,11 +109,11 @@ namespace Blackjack
                 _suit = kolory[kolor];
 
 
-                test.BeginInit();
-                test.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
-                test.EndInit();
+                cardImage.BeginInit();
+                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.EndInit();
 
-                ComputerImages[i].Source = test;
+                ComputerImages[i].Source = cardImage;
                 currentComputer = i;
             }
 
@@ -118,6 +123,7 @@ namespace Blackjack
             if (playerCounter == 21 && !czyMessage)
             {
                 Message.Content = "WYGRAŁEŚ !!! \nMasz Blackjack'a";
+                this.money += this.bet * 3;
                 czyMessage = true;
                 czyStop = true;
             }
@@ -146,12 +152,12 @@ namespace Blackjack
                 _suit = kolory[kolor];
 
 
-                BitmapImage test = new BitmapImage();
-                test.BeginInit();
-                test.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
-                test.EndInit();
+                BitmapImage cardImage = new BitmapImage();
+                cardImage.BeginInit();
+                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.EndInit();
 
-                PlayerImages[currentPlayer].Source = test;
+                PlayerImages[currentPlayer].Source = cardImage;
 
                 PlayerValue.Content = $"Wartość kart : \n {playerCounter}";
                 if (playerCounter > 21 && !czyMessage)
@@ -164,6 +170,7 @@ namespace Blackjack
                 if (playerCounter == 21 && !czyMessage)
                 {
                     Message.Content = "Gratulacje !!! Wygrałeś !!! \nMasz Balckjack'a";
+                    this.money += this.bet * 3;
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -185,12 +192,12 @@ namespace Blackjack
                 List<Image> ComputerImages = new List<Image>() { ComputerCard1, ComputerCard2, ComputerCard3, ComputerCard4, ComputerCard5, ComputerCard6 };
                 if (!czyOdkryto)
                 {
-                    BitmapImage test = new BitmapImage();
-                    test.BeginInit();
-                    test.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + kolory[ukrytyKolor] + ukrytyNumer + ".png");
-                    test.EndInit();
+                    BitmapImage cardImage = new BitmapImage();
+                    cardImage.BeginInit();
+                    cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + kolory[ukrytyKolor] + ukrytyNumer + ".png");
+                    cardImage.EndInit();
 
-                    ComputerCard1.Source = test;
+                    ComputerCard1.Source = cardImage;
 
                     if (ukrytyNumer > 10)
                     {
@@ -229,12 +236,12 @@ namespace Blackjack
                         _suit = kolory[kolor];
 
 
-                        BitmapImage test = new BitmapImage();
-                        test.BeginInit();
-                        test.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
-                        test.EndInit();
+                        BitmapImage cardImage = new BitmapImage();
+                        cardImage.BeginInit();
+                        cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                        cardImage.EndInit();
 
-                        ComputerImages[currentComputer].Source = test;
+                        ComputerImages[currentComputer].Source = cardImage;
 
                         ComputerValue.Content = $"Wartość kart : \n {computerCounter}";
                     }
@@ -250,6 +257,7 @@ namespace Blackjack
                 if (computerCounter > 21 && !czyMessage)
                 {
                     Message.Content = "Wygrałeś !!! \nWartość kart krupiera przekroczyła 21";
+                    this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -262,12 +270,14 @@ namespace Blackjack
                 if (computerCounter < playerCounter && !czyMessage)
                 {
                     Message.Content = "Wygrałeś!!! \nWartość towich kart jest większa od kart krupiera";
+                    this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
                 }
                 if (computerCounter == playerCounter && !czyMessage)
                 {
                     Message.Content = "Remis !!! \n Odzyskujesz swoje pieniądze";
+                    this.money += this.bet;
                     czyStop = true;
                     czyMessage = true;
                 }

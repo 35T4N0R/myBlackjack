@@ -22,6 +22,7 @@ namespace Blackjack
     {
         int money = 0;
         int bet = 0;
+        MainWindow mw = (MainWindow)Application.Current.MainWindow;
         public BettingPage(int money)
         {
             InitializeComponent();
@@ -90,5 +91,9 @@ namespace Blackjack
             }
         }
 
+        private void submitBetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new GamePage(this.money-this.bet,this.bet);
+        }
     }
 }
