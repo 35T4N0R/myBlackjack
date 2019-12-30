@@ -12,11 +12,16 @@
         <Grid.Background>
             <ImageBrush ImageSource="./images/gamebackground.png"></ImageBrush>
         </Grid.Background>
+        <Border x:Name="messageBorder" Visibility="Hidden"  CornerRadius="10" BorderBrush="White" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="90">
+            <Label Foreground="White" Name="Message" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+        </Border>
         
-        <Label Foreground="White" Name="Message" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="400" Height="50"/>
+        <Button Visibility="Hidden" x:Name="yes" Content="Tak" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 90 100 0" Width="40" Click="yes_Click"></Button>
+        <Button Visibility="Hidden" x:Name="no" Content="Nie" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100 90 0 0" Width="40" Click="no_Click"></Button>
+
 
         <Button Name ="Hit" Content="Hit" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 130" Click="Hit_Click"/>
-        <RepeatButton Name="Stand" Content="Stand" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 85" Click="Stand_Click" Delay="2000" Interval="2000"/>
+        <Button Name="Stand" Content="Stand" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 85" Click="Stand_Click"/>
         <Button Name="Surrender" Content="Surrender" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 40" Click="Surrender_Click"/>
 
 

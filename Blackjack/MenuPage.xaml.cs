@@ -28,7 +28,7 @@ namespace Blackjack
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
-            mw.MainFrame.Content = new BettingPage(6000);
+            mw.MainFrame.Content = new NickPage();
         }
 
 

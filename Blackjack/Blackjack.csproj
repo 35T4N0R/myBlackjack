@@ -64,6 +64,9 @@
     <Compile Include="BettingPage.xaml.cs">
       <DependentUpon>BettingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NickPage.xaml.cs">
+      <DependentUpon>NickPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RulesPage.xaml.cs">
       <DependentUpon>RulesPage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NickPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -21,7 +21,7 @@ namespace Blackjack
     public partial class GamePage : Page
     {
 
-
+        MainWindow mw = (MainWindow)Application.Current.MainWindow;
         public string[] kolory = new string[] { "h", "d", "c", "s" };
         public int _value;
         public string _suit;
@@ -123,6 +123,7 @@ namespace Blackjack
             if (playerCounter == 21 && !czyMessage)
             {
                 Message.Content = "WYGRAŁEŚ !!! \nMasz Blackjack'a";
+                resultMessage();
                 this.money += this.bet * 3;
                 czyMessage = true;
                 czyStop = true;
@@ -163,6 +164,7 @@ namespace Blackjack
                 if (playerCounter > 21 && !czyMessage)
                 {
                     Message.Content = "Przegrałeś ! \nWartość twoich kart przekroczyła 21";
+                    resultMessage();
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -170,6 +172,7 @@ namespace Blackjack
                 if (playerCounter == 21 && !czyMessage)
                 {
                     Message.Content = "Gratulacje !!! Wygrałeś !!! \nMasz Balckjack'a";
+                    resultMessage();
                     this.money += this.bet * 3;
                     czyStop = true;
                     czyMessage = true;
@@ -178,6 +181,7 @@ namespace Blackjack
             else if (currentPlayer + 1 > 5 && !czyMessage)
             {
                 Message.Content = "Przegrałeś !!! \nOsiągnąłeś limit kart do dobrania";
+                resultMessage();
                 czyStop = true;
                 czyMessage = true;
             }
@@ -251,12 +255,14 @@ namespace Blackjack
                 if (computerCounter == 21 && !czyMessage)
                 {
                     Message.Content = "Przegrałeś !!! \nKrupier ma Blackjack'a";
+                    resultMessage();
                     czyStop = true;
                     czyMessage = true;
                 }
                 if (computerCounter > 21 && !czyMessage)
                 {
                     Message.Content = "Wygrałeś !!! \nWartość kart krupiera przekroczyła 21";
+                    resultMessage();
                     this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
@@ -264,19 +270,22 @@ namespace Blackjack
                 if (computerCounter > playerCounter && !czyMessage)
                 {
                     Message.Content = "Przegrałeś!!! \nWartośc kart krupiera jest większa od twojej";
+                    resultMessage();
                     czyStop = true;
                     czyMessage = true;
                 }
                 if (computerCounter < playerCounter && !czyMessage)
                 {
                     Message.Content = "Wygrałeś!!! \nWartość towich kart jest większa od kart krupiera";
+                    resultMessage();
                     this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
                 }
                 if (computerCounter == playerCounter && !czyMessage)
                 {
-                    Message.Content = "Remis !!! \n Odzyskujesz swoje pieniądze";
+                    Message.Content = "Remis !!! \nOdzyskujesz swoje pieniądze";
+                    resultMessage();
                     this.money += this.bet;
                     czyStop = true;
                     czyMessage = true;
@@ -291,10 +300,29 @@ namespace Blackjack
             if (!czyStop && !czyMessage)
             {
                 czyStop = true;
-                Message.Content = "Poddałeś się XDDDD!!!!";
+                Message.Content = "Przegrałeś !!! Poddałeś się !!!";
+                resultMessage();
                 czyMessage = true;
             }
+        }
 
+        private void resultMessage()
+        {
+            messageBorder.Visibility = Visibility.Visible;
+            Message.Content += "\nCzy chcesz zagrać jeszcze raz ?";
+            no.Visibility = Visibility.Visible;
+            yes.Visibility = Visibility.Visible;
+        }
+
+        private void yes_Click(object sender, RoutedEventArgs e)
+        {
+            
+            mw.MainFrame.Content = new BettingPage(this.money);
+        }
+
+        private void no_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new MenuPage();
         }
     }
 }
