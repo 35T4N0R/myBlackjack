@@ -49,7 +49,7 @@
             </TextBlock.Style>
         </TextBlock>
 
-        <Image Cursor="Hand" Source="back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
+        <Image Cursor="Hand" Source="./images/back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
         
     </Grid>
 </Page>

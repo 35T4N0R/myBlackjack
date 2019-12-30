@@ -37,19 +37,18 @@ namespace Blackjack
         Boolean czyStand = false;
         Boolean czyStop = false;
         Boolean czyMessage = false;
-        int money = 0;
         int bet = 0;
-        string player;
-        public GamePage(int money, int bet, string player)
+        List<Player> ranking;
+        Player player;
+        public GamePage( Player player, int bet, List<Player> ranking)
         {
             InitializeComponent();
-
-            this.money = money;
             this.bet = bet;
             this.player = player;
+            this.ranking = ranking;
 
-            Money.Content = "Twoje saldo : \n" + this.money;
-            Bet.Content = "Twój zakład : \n" + this.bet;
+            Money.Content += "\n" + player.money;
+            Bet.Content += "\n" + this.bet;
             List<Image> PlayerImages = new List<Image>() { PlayerCard1, PlayerCard2, PlayerCard3, PlayerCard4, PlayerCard5, PlayerCard6 };
             List<Image> ComputerImages = new List<Image>() { ComputerCard1, ComputerCard2, ComputerCard3, ComputerCard4, ComputerCard5, ComputerCard6 };
 
@@ -126,8 +125,8 @@ namespace Blackjack
             if (playerCounter == 21 && !czyMessage)
             {
                 Message.Content = "WYGRAŁEŚ !!! \nMasz Blackjack'a";
+                player.money += this.bet * 3;
                 resultMessage();
-                this.money += this.bet * 3;
                 czyMessage = true;
                 czyStop = true;
             }
@@ -175,8 +174,8 @@ namespace Blackjack
                 if (playerCounter == 21 && !czyMessage)
                 {
                     Message.Content = "Gratulacje !!! Wygrałeś !!! \nMasz Balckjack'a";
+                    player.money += this.bet * 3;
                     resultMessage();
-                    this.money += this.bet * 3;
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -265,8 +264,8 @@ namespace Blackjack
                 if (computerCounter > 21 && !czyMessage)
                 {
                     Message.Content = "Wygrałeś !!! \nWartość kart krupiera przekroczyła 21";
+                    player.money += this.bet * 2;
                     resultMessage();
-                    this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -279,17 +278,17 @@ namespace Blackjack
                 }
                 if (computerCounter < playerCounter && !czyMessage)
                 {
-                    Message.Content = "Wygrałeś!!! \nWartość towich kart jest większa od kart krupiera";
+                    Message.Content = "Wygrałeś!!! \nWartość twoich kart jest większa od kart krupiera";
+                    player.money += this.bet * 2;
                     resultMessage();
-                    this.money += this.bet * 2;
                     czyStop = true;
                     czyMessage = true;
                 }
                 if (computerCounter == playerCounter && !czyMessage)
                 {
                     Message.Content = "Remis !!! \nOdzyskujesz swoje pieniądze";
+                    player.money += this.bet;
                     resultMessage();
-                    this.money += this.bet;
                     czyStop = true;
                     czyMessage = true;
                 }
@@ -312,23 +311,69 @@ namespace Blackjack
         private void resultMessage()
         {
             messageBorder.Visibility = Visibility.Visible;
-            Message.Content += "\nCzy chcesz zagrać jeszcze raz ?";
+            Message.Content += "\nCzy chcesz rozegrać kolejną partię ?";
+            Money.Content = "Twoje saldo : \n" + player.money;
             no.Visibility = Visibility.Visible;
             yes.Visibility = Visibility.Visible;
+            noAndSave.Visibility = Visibility.Visible;
         }
 
         private void yes_Click(object sender, RoutedEventArgs e)
         {
             
-            mw.MainFrame.Content = new BettingPage(this.money, this.player);
+            mw.MainFrame.Content = new BettingPage(this.player, this.ranking);
         }
 
         private void no_Click(object sender, RoutedEventArgs e)
         {
             StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Open));
-            sw.WriteLine(this.player + " " + this.money);
+            sw.WriteLine(player.nickname + " " + player.money);
             sw.Close();
             mw.MainFrame.Content = new MenuPage();
+        }
+
+        private void noAndSave_Click(object sender, RoutedEventArgs e)
+        {
+            if(ranking.Count() < 10)
+            {
+                ranking.Add(player);
+            }
+            else
+            {
+                if(player.money >= ranking[9].money)
+                {
+                    ranking[9] = player;
+                }
+            }
+            ranking = ranking.OrderByDescending(x => x.money).ToList();
+
+            StreamWriter sw;
+
+            try
+            {
+               sw = new StreamWriter(new FileStream("ranking.txt", FileMode.Truncate));
+
+            }
+            catch (FileNotFoundException)
+            {
+                sw = new StreamWriter(new FileStream("ranking.txt", FileMode.OpenOrCreate));
+
+            }
+
+            foreach (Player p in ranking)
+            {
+                sw.WriteLine(p.nickname + " " + p.money);
+            }
+            sw.Close();
+
+            StreamWriter sw2 = new StreamWriter(new FileStream("player.txt", FileMode.Truncate));
+            sw2.Close();
+
+            mw.MainFrame.Content = new MenuPage();
+        }
+        private int compare(Player a, Player b)
+        {
+            return a.money.CompareTo(b.money);
         }
     }
 }

@@ -16,8 +16,9 @@
         <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Graj" Name="playButton" Width="100" Height="30" FontSize="18" Margin="0 100 110 0" Click="playButton_Click"></Button>
         <Button Name="continueButton" Content="Kontynuuj" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="110 100 0 0" Click="continueButton_Click" ></Button>
         <Button Name="rulesButton" Content="Zasady" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 170 0 0" Click="rulesButton_Click"></Button>
-        <Button Name="authorButton" Content="Autor" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 240 0 0" Click="authorButton_Click"></Button>
-        <Button Content="Wyjście" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 310 0 0" Click="Button_Click"></Button>
+        <Button Name="rankingButton" Content="Ranking" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 240 0 0" Click="rankingButton_Click"></Button>
+        <Button Name="authorButton" Content="Autor" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 310 0 0" Click="authorButton_Click"></Button>
+        <Button Content="Wyjście" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="30" FontSize="18" Margin="0 380 0 0" Click="Button_Click"></Button>
         <Label Name="nicknameLabel" HorizontalContentAlignment="Left" Width="235" Content="Nickname: " HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="450 80 0 0"></Label>
         <Label Name="moneyLabel" HorizontalContentAlignment="Left" Width="235" Content="Saldo: " HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="450 120 0 0"></Label>
     </Grid>

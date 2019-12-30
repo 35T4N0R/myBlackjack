@@ -22,9 +22,11 @@ namespace Blackjack
     public partial class NickPage : Page
     {
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
-        public NickPage()
+        List<Player> ranking;
+        public NickPage(List<Player> ranking)
         {
             InitializeComponent();
+            this.ranking = ranking;
             nickTextBox.Focus();
         }
         
@@ -35,7 +37,10 @@ namespace Blackjack
                 StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.OpenOrCreate));
                 sw.WriteLine(nickTextBox.Text + " 6000");
                 sw.Close();
-                mw.MainFrame.Content = new BettingPage(6000, nickTextBox.Text);
+                Player player = new Player();
+                player.nickname = nickTextBox.Text;
+                player.money = 6000;
+                mw.MainFrame.Content = new BettingPage(player, this.ranking);
             }
             else
             {

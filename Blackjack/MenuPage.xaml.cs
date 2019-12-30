@@ -21,15 +21,16 @@ namespace Blackjack
     /// </summary>
     public partial class MenuPage : Page
     {
-        MainWindow mw =(MainWindow) Application.Current.MainWindow;
+        MainWindow mw = (MainWindow) Application.Current.MainWindow;
 
-        string player;
-        int money = 0;
+        Player player;
         string line;
+        List<Player> ranking = new List<Player>();
 
         public MenuPage()
         {
             InitializeComponent();
+
             try
             {
                 StreamReader sr = new StreamReader("player.txt");
@@ -37,18 +38,43 @@ namespace Blackjack
                 line = sr.ReadLine();
                 string[] tmp = line.Split(' ');
 
-                player = tmp[0];
-                money = Convert.ToInt32(tmp[1]);
+                player = new Player();
+                player.nickname = tmp[0];
+                player.money = Convert.ToInt32(tmp[1]);
 
                 sr.Close();
 
                 continueButton.IsEnabled = true;
-                nicknameLabel.Content += player;
-                moneyLabel.Content += money.ToString();
+                nicknameLabel.Content += player.nickname;
+                moneyLabel.Content += player.money.ToString();
             }
             catch( FileNotFoundException)
             {
                 continueButton.IsEnabled = false;
+            }
+            catch (NullReferenceException)
+            {
+                continueButton.IsEnabled = false;
+            }
+
+            try
+            {
+                StreamReader sr = new StreamReader("ranking.txt");
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] tmp = line.Split(' ');
+
+                    player = new Player();
+                    player.nickname = tmp[0];
+                    player.money = Convert.ToInt32(tmp[1]);
+
+                    ranking.Add(player);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                rankingButton.IsEnabled = false;
             }
             
 
@@ -56,7 +82,7 @@ namespace Blackjack
 
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
-            mw.MainFrame.Content = new NickPage();
+            mw.MainFrame.Content = new NickPage(ranking);
         }
 
 
@@ -76,7 +102,12 @@ namespace Blackjack
 
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
-            mw.MainFrame.Content = new BettingPage(this.money, this.player);
+            mw.MainFrame.Content = new BettingPage(player, ranking);
+        }
+
+        private void rankingButton_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new RankingPage(ranking);
         }
     }
 }

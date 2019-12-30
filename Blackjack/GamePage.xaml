@@ -16,8 +16,9 @@
             <Label Foreground="White" Name="Message" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
         </Border>
         
-        <Button Visibility="Hidden" x:Name="yes" Content="Tak" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 90 100 0" Width="40" Click="yes_Click"></Button>
-        <Button Visibility="Hidden" x:Name="no" Content="Nie" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100 90 0 0" Width="40" Click="no_Click"></Button>
+        <Button Visibility="Hidden" x:Name="yes" Content="Tak" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 90 270 0" Width="40" Click="yes_Click"></Button>
+        <Button Visibility="Hidden" x:Name="no" Content="Nie" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 90 83 0" Width="40" Click="no_Click"></Button>
+        <Button Visibility="Hidden" x:Name="noAndSave" Content="Zakończ i zapisz wynik" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="187 90 0 0" Click="noAndSave_Click"></Button>
 
 
         <Button Name ="Hit" Content="Hit" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 130" Click="Hit_Click"/>
@@ -26,11 +27,11 @@
 
 
         <Border BorderBrush="White" BorderThickness="1" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 100">
-        <Label Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Name="Money" Width="100" Height="50"/>
+        <Label Content="Twoje saldo : " Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Name="Money" Width="100" Height="50"/>
         </Border>
 
         <Border BorderBrush="White" BorderThickness="1" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 20 10 0">
-        <Label Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Name="Bet" Width="100" Height="50" />
+        <Label Content="Twój zakład : " Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Name="Bet" Width="100" Height="50" />
         </Border>
 
         <Border BorderBrush="White" BorderThickness="1"  Width="100" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10">

@@ -20,16 +20,17 @@ namespace Blackjack
     /// </summary>
     public partial class BettingPage : Page
     {
-        int money = 0;
         int bet = 0;
-        string player;
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
-        public BettingPage(int money, string player)
+        List<Player> ranking;
+        Player player;
+
+        public BettingPage(Player player, List<Player> ranking)
         {
             InitializeComponent();
-            this.money = money;
             this.player = player;
-            Money.Content += "\n" + this.money;
+            this.ranking = ranking;
+            Money.Content += "\n" + player.money;
             betTextBox.Content = "0";
         }
 
@@ -68,7 +69,7 @@ namespace Blackjack
 
         private void pos100_Click(object sender, RoutedEventArgs e)
         {
-            if(this.bet + 100 <= this.money)
+            if(this.bet + 100 <= player.money)
             {
                 this.bet += 100;
                 betTextBox.Content = this.bet.ToString();
@@ -77,7 +78,7 @@ namespace Blackjack
 
         private void pos500_Click(object sender, RoutedEventArgs e)
         {
-            if (this.bet + 500 <= this.money)
+            if (this.bet + 500 <= player.money)
             {
                 this.bet += 500;
                 betTextBox.Content = this.bet.ToString();
@@ -86,7 +87,7 @@ namespace Blackjack
 
         private void pos1000_Click(object sender, RoutedEventArgs e)
         {
-            if (this.bet + 1000 <= this.money)
+            if (this.bet + 1000 <= player.money)
             {
                 this.bet += 1000;
                 betTextBox.Content = this.bet.ToString();
@@ -95,7 +96,8 @@ namespace Blackjack
 
         private void submitBetButton_Click(object sender, RoutedEventArgs e)
         {
-            mw.MainFrame.Content = new GamePage(this.money-this.bet,this.bet, this.player);
+            player.money = player.money - this.bet;
+            mw.MainFrame.Content = new GamePage(player, this.bet, this.ranking);
         }
     }
 }
