@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Blackjack
 {
@@ -38,12 +39,14 @@ namespace Blackjack
         Boolean czyMessage = false;
         int money = 0;
         int bet = 0;
-        public GamePage(int money, int bet)
+        string player;
+        public GamePage(int money, int bet, string player)
         {
             InitializeComponent();
 
             this.money = money;
             this.bet = bet;
+            this.player = player;
 
             Money.Content = "Twoje saldo : \n" + this.money;
             Bet.Content = "Twój zakład : \n" + this.bet;
@@ -317,11 +320,14 @@ namespace Blackjack
         private void yes_Click(object sender, RoutedEventArgs e)
         {
             
-            mw.MainFrame.Content = new BettingPage(this.money);
+            mw.MainFrame.Content = new BettingPage(this.money, this.player);
         }
 
         private void no_Click(object sender, RoutedEventArgs e)
         {
+            StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Open));
+            sw.WriteLine(this.player + " " + this.money);
+            sw.Close();
             mw.MainFrame.Content = new MenuPage();
         }
     }

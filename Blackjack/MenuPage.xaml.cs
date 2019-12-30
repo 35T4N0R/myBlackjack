@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Blackjack
 {
@@ -21,9 +22,36 @@ namespace Blackjack
     public partial class MenuPage : Page
     {
         MainWindow mw =(MainWindow) Application.Current.MainWindow;
+
+        string player;
+        int money = 0;
+        string line;
+
         public MenuPage()
         {
             InitializeComponent();
+            try
+            {
+                StreamReader sr = new StreamReader("player.txt");
+
+                line = sr.ReadLine();
+                string[] tmp = line.Split(' ');
+
+                player = tmp[0];
+                money = Convert.ToInt32(tmp[1]);
+
+                sr.Close();
+
+                continueButton.IsEnabled = true;
+                nicknameLabel.Content += player;
+                moneyLabel.Content += money.ToString();
+            }
+            catch( FileNotFoundException)
+            {
+                continueButton.IsEnabled = false;
+            }
+            
+
         }
 
         private void playButton_Click(object sender, RoutedEventArgs e)
@@ -44,6 +72,11 @@ namespace Blackjack
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void continueButton_Click(object sender, RoutedEventArgs e)
+        {
+            mw.MainFrame.Content = new BettingPage(this.money, this.player);
         }
     }
 }

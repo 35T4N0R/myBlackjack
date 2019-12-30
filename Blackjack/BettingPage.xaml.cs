@@ -22,11 +22,13 @@ namespace Blackjack
     {
         int money = 0;
         int bet = 0;
+        string player;
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
-        public BettingPage(int money)
+        public BettingPage(int money, string player)
         {
             InitializeComponent();
             this.money = money;
+            this.player = player;
             Money.Content += "\n" + this.money;
             betTextBox.Content = "0";
         }
@@ -93,7 +95,7 @@ namespace Blackjack
 
         private void submitBetButton_Click(object sender, RoutedEventArgs e)
         {
-            mw.MainFrame.Content = new GamePage(this.money-this.bet,this.bet);
+            mw.MainFrame.Content = new GamePage(this.money-this.bet,this.bet, this.player);
         }
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Blackjack
 {
@@ -29,9 +30,12 @@ namespace Blackjack
         
         private async void confirmButton_Click(object sender, RoutedEventArgs e)
         {
-            if(!String.IsNullOrEmpty(nickTextBox.Text) &&  !String.IsNullOrWhiteSpace(nickTextBox.Text))
+            if(!String.IsNullOrEmpty(nickTextBox.Text) &&  !String.IsNullOrWhiteSpace(nickTextBox.Text) && !nickTextBox.Text.Contains(" "))
             {
-
+                StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.OpenOrCreate));
+                sw.WriteLine(nickTextBox.Text + " 6000");
+                sw.Close();
+                mw.MainFrame.Content = new BettingPage(6000, nickTextBox.Text);
             }
             else
             {

@@ -13,7 +13,7 @@
             <ImageBrush ImageSource="./images/background.jpg" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
         <Label Content="Podaj swój nickname :" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="18" Margin="0 80 0 0"></Label>
-        <TextBox x:Name="nickTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 150 0 0"></TextBox>
+        <TextBox MaxLength="25" x:Name="nickTextBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 150 0 0"></TextBox>
         <Button x:Name="confirmButton" Content="Zatwierdź" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 250 0 0" FontSize="14" Width="80" Click="confirmButton_Click"></Button>
         <Label Name="wrongNickname" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="475 150 0 0" Foreground="Red" FontSize="14"></Label>
     </Grid>

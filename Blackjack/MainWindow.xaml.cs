@@ -20,14 +20,10 @@ namespace Blackjack
     /// </summary>
     public partial class MainWindow : Window
     {
-
-
-
         public MainWindow()
         {
             InitializeComponent();
             MainFrame.Content = new MenuPage();
-
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

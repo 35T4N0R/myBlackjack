@@ -152,9 +152,6 @@
     <Resource Include="images\back.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="images\Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
