@@ -65,12 +65,13 @@ namespace Blackjack
                 {
                     string[] tmp = line.Split(' ');
 
-                    player = new Player();
-                    player.nickname = tmp[0];
-                    player.money = Convert.ToInt32(tmp[1]);
+                    Player playerTmp = new Player();
+                    playerTmp.nickname = tmp[0];
+                    playerTmp.money = Convert.ToInt32(tmp[1]);
 
-                    ranking.Add(player);
+                    ranking.Add(playerTmp);
                 }
+                sr.Close();
             }
             catch (FileNotFoundException)
             {
