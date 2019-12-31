@@ -162,5 +162,62 @@
   <ItemGroup>
     <Resource Include="images\Icons-Land-Metro-Raster-Sport-Casino-Playing-Cards.ico" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="karty\c1.png" />
+    <Resource Include="karty\c10.png" />
+    <Resource Include="karty\c11.png" />
+    <Resource Include="karty\c12.png" />
+    <Resource Include="karty\c13.png" />
+    <Resource Include="karty\c2.png" />
+    <Resource Include="karty\c3.png" />
+    <Resource Include="karty\c4.png" />
+    <Resource Include="karty\c5.png" />
+    <Resource Include="karty\c6.png" />
+    <Resource Include="karty\c7.png" />
+    <Resource Include="karty\c8.png" />
+    <Resource Include="karty\c9.png" />
+    <Resource Include="karty\computer.png" />
+    <Resource Include="karty\d1.png" />
+    <Resource Include="karty\d10.png" />
+    <Resource Include="karty\d11.png" />
+    <Resource Include="karty\d12.png" />
+    <Resource Include="karty\d13.png" />
+    <Resource Include="karty\d2.png" />
+    <Resource Include="karty\d3.png" />
+    <Resource Include="karty\d4.png" />
+    <Resource Include="karty\d5.png" />
+    <Resource Include="karty\d6.png" />
+    <Resource Include="karty\d7.png" />
+    <Resource Include="karty\d8.png" />
+    <Resource Include="karty\d9.png" />
+    <Resource Include="karty\h1.png" />
+    <Resource Include="karty\h10.png" />
+    <Resource Include="karty\h11.png" />
+    <Resource Include="karty\h12.png" />
+    <Resource Include="karty\h13.png" />
+    <Resource Include="karty\h2.png" />
+    <Resource Include="karty\h3.png" />
+    <Resource Include="karty\h4.png" />
+    <Resource Include="karty\h5.png" />
+    <Resource Include="karty\h6.png" />
+    <Resource Include="karty\h7.png" />
+    <Resource Include="karty\h8.png" />
+    <Resource Include="karty\h9.png" />
+    <Resource Include="karty\player.png" />
+    <Resource Include="karty\s1.png" />
+    <Resource Include="karty\s10.png" />
+    <Resource Include="karty\s11.png" />
+    <Resource Include="karty\s12.png" />
+    <Resource Include="karty\s13.png" />
+    <Resource Include="karty\s2.png" />
+    <Resource Include="karty\s3.png" />
+    <Resource Include="karty\s4.png" />
+    <Resource Include="karty\s5.png" />
+    <Resource Include="karty\s6.png" />
+    <Resource Include="karty\s7.png" />
+    <Resource Include="karty\s8.png" />
+    <Resource Include="karty\s9.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

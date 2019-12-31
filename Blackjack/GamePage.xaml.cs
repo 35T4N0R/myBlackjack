@@ -72,7 +72,7 @@ namespace Blackjack
                 cardImage = new BitmapImage();
 
                 cardImage.BeginInit();
-                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.UriSource = new Uri("pack://application:,,,/karty/" + _suit + _value + ".png");
                 cardImage.EndInit();
 
                 PlayerImages[i].Source = cardImage;
@@ -92,7 +92,7 @@ namespace Blackjack
                     ukrytyKolor = kolor;
 
                     cardImage.BeginInit();
-                    cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/computer.png");
+                    cardImage.UriSource = new Uri("pack://application:,,,/karty/computer.png");
                     cardImage.EndInit();
 
                     ComputerImages[i].Source = cardImage;
@@ -112,7 +112,7 @@ namespace Blackjack
 
 
                 cardImage.BeginInit();
-                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.UriSource = new Uri("pack://application:,,,/karty/" + _suit + _value + ".png");
                 cardImage.EndInit();
 
                 ComputerImages[i].Source = cardImage;
@@ -157,7 +157,7 @@ namespace Blackjack
 
                 BitmapImage cardImage = new BitmapImage();
                 cardImage.BeginInit();
-                cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                cardImage.UriSource = new Uri("pack://application:,,,/karty/" + _suit + _value + ".png");
                 cardImage.EndInit();
 
                 PlayerImages[currentPlayer].Source = cardImage;
@@ -200,7 +200,7 @@ namespace Blackjack
                 {
                     BitmapImage cardImage = new BitmapImage();
                     cardImage.BeginInit();
-                    cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + kolory[ukrytyKolor] + ukrytyNumer + ".png");
+                    cardImage.UriSource = new Uri("pack://application:,,,/karty/" + kolory[ukrytyKolor] + ukrytyNumer + ".png");
                     cardImage.EndInit();
 
                     ComputerCard1.Source = cardImage;
@@ -244,7 +244,7 @@ namespace Blackjack
 
                         BitmapImage cardImage = new BitmapImage();
                         cardImage.BeginInit();
-                        cardImage.UriSource = new Uri("pack://siteoforigin:,,,/karty/" + _suit + _value + ".png");
+                        cardImage.UriSource = new Uri("pack://application:,,,/karty/" + _suit + _value + ".png");
                         cardImage.EndInit();
 
                         ComputerImages[currentComputer].Source = cardImage;
