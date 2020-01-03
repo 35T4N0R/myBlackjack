@@ -12,8 +12,39 @@
         <Grid.Background>
             <ImageBrush ImageSource="./images/gamebackground.png" Stretch="UniformToFill"></ImageBrush>
         </Grid.Background>
-        <Label Content="Top 10 najlepszych graczy" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Foreground="White"></Label>
+        <Label Content="Top 10 najlepszych graczy" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="50" Foreground="White">
+            <Label.Style>
+                <Style TargetType="Label">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="Label.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
         <TextBlock Foreground="White" FontSize="18" Name="rankingTextBlock" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="300" Margin="180 20 0 0">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard TargetProperty="Opacity">
+                                        <DoubleAnimation  Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
         </TextBlock>
         <Image Cursor="Hand" Source="./images/back.png" Height="35" x:Name="backButton" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 20" MouseDown="backButton_MouseDown"/>
 

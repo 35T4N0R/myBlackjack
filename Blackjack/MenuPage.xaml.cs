@@ -43,8 +43,14 @@ namespace Blackjack
                 player.money = Convert.ToInt32(tmp[1]);
 
                 sr.Close();
-
-                continueButton.IsEnabled = true;
+                if(player.money == 0)
+                {
+                    continueButton.IsEnabled = false;
+                }
+                else
+                {
+                    continueButton.IsEnabled = true;
+                }
                 nicknameLabel.Content += player.nickname;
                 moneyLabel.Content += player.money.ToString();
             }

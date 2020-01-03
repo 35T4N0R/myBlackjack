@@ -32,6 +32,12 @@ namespace Blackjack
             this.ranking = ranking;
             Money.Content += "\n" + player.money;
             betTextBox.Content = "0";
+            if(player.money == 0)
+            {
+                noMoney.Content = "Skończyły ci się pieniądze. \nTo koniec twojej gry.\nJedyne co możesz teraz zrobić \nto wrócić do menu.";
+                submitBetButton.IsEnabled = false;
+                noMoneyButton.Visibility = Visibility.Visible;
+            }
         }
 
         private void neg1000_Click(object sender, RoutedEventArgs e)
@@ -94,10 +100,24 @@ namespace Blackjack
             }
         }
 
-        private void submitBetButton_Click(object sender, RoutedEventArgs e)
+        private async void submitBetButton_Click(object sender, RoutedEventArgs e)
         {
-            player.money = player.money - this.bet;
-            mw.MainFrame.Content = new GamePage(player, this.bet, this.ranking);
+            if(this.bet == 0)
+            {
+                wrongBetLabel.Content = "";
+                await Task.Delay(100);
+                wrongBetLabel.Content = "Nie możesz grać za 0 zł.\nSpróbuj jeszcze raz.";
+            }
+            else
+            {
+                player.money = player.money - this.bet;
+                mw.MainFrame.Content = new GamePage(player, this.bet, this.ranking);
+            }
+        }
+
+        private void noMoneyButton_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            mw.MainFrame.Content = new MenuPage();
         }
     }
 }

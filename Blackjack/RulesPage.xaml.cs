@@ -23,17 +23,17 @@ namespace Blackjack
         public RulesPage()
         {
             InitializeComponent();
-            rulesTextBlock.Text =@"
+            rulesTextBlock.Text = @"
 1.Aby wygrac musisz spelnic jeden z ponizszych warunkow: 
     a) wartosc twoich kart musi wynosic dokladnie 21 
     b) wartosc twoich kart musi byc wieksza od wartosci kart krupiera
-        ale nie przekraczajaca 21 
-2.Przegrywasz w nastepujacych przypadkach:
+        ale nie przekraczajaca 21
+2.Wygrywasz również jeżeli krupier będzie chciał dobrać siódmą kartę
+3.Przegrywasz w nastepujacych przypadkach:
     a) gdy wartosc twoich kart przekroczy 21 
     b) gdy wartosc kart krupiera wynosi 21
-    c) gdy sie poddasz 
-3.Kasyno przyjmuje tylko zaklady bedace wielokrotnoscia 100,
-    np. 100, 200, 1000, 5100, 15900, 30200";
+    c) gdy sie poddasz
+    d) gdy będziesz chciał dobrać siódmą kartę";
         }
 
         private void backButton_MouseDown(object sender, MouseButtonEventArgs e)

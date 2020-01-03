@@ -21,9 +21,30 @@
         <Button Visibility="Hidden" x:Name="noAndSave" Content="Zakończ i zapisz wynik" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="187 90 0 0" Click="noAndSave_Click"></Button>
 
 
-        <Button Name ="Hit" Content="Hit" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 130" Click="Hit_Click"/>
-        <Button Name="Stand" Content="Stand" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 85" Click="Stand_Click"/>
-        <Button Name="Surrender" Content="Surrender" Width="50" Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 40" Click="Surrender_Click"/>
+        <Button Background="GreenYellow" FontSize="18" Name ="Hit" Content="Hit" Width="90" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 130" Click="Hit_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Background="LightSkyBlue" FontSize="18" Name="Stand" Content="Stand" Width="90" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 40" Click="Stand_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Background="Black" Foreground="White" FontSize="18" Name="Surrender" Content="Surrender" Width="90" Height="40" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 50 0 0" Click="Surrender_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
 
         <Border BorderBrush="White" BorderThickness="1" Width="100" Height="50" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 100">
