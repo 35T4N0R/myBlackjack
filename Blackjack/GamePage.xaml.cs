@@ -328,7 +328,7 @@ namespace Blackjack
 
         private void no_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Open));
+            StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Truncate));
             sw.WriteLine(player.nickname + " " + player.money);
             sw.Close();
             mw.MainFrame.Content = new MenuPage();
