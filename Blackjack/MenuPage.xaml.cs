@@ -33,16 +33,19 @@ namespace Blackjack
 
             try
             {
-                StreamReader sr = new StreamReader("player.txt");
+                using (StreamReader sr = new StreamReader("player.txt"))
+                {
+                    line = sr.ReadLine();
+                    string[] tmp = line.Split(' ');
 
-                line = sr.ReadLine();
-                string[] tmp = line.Split(' ');
+                    player = new Player();
+                    player.nickname = tmp[0];
+                    player.money = Convert.ToInt32(tmp[1]);
 
-                player = new Player();
-                player.nickname = tmp[0];
-                player.money = Convert.ToInt32(tmp[1]);
+                    sr.Close();
 
-                sr.Close();
+                }
+
                 if(player.money == 0)
                 {
                     continueButton.IsEnabled = false;
@@ -65,19 +68,21 @@ namespace Blackjack
 
             try
             {
-                StreamReader sr = new StreamReader("ranking.txt");
-
-                while ((line = sr.ReadLine()) != null)
+                using (StreamReader sr = new StreamReader("ranking.txt"))
                 {
-                    string[] tmp = line.Split(' ');
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] tmp = line.Split(' ');
 
-                    Player playerTmp = new Player();
-                    playerTmp.nickname = tmp[0];
-                    playerTmp.money = Convert.ToInt32(tmp[1]);
+                        Player playerTmp = new Player();
+                        playerTmp.nickname = tmp[0];
+                        playerTmp.money = Convert.ToInt32(tmp[1]);
 
-                    ranking.Add(playerTmp);
+                        ranking.Add(playerTmp);
+                    }
+                    sr.Close();
                 }
-                sr.Close();
+
             }
             catch (FileNotFoundException)
             {

@@ -34,9 +34,12 @@ namespace Blackjack
         {
             if(!String.IsNullOrEmpty(nickTextBox.Text) &&  !String.IsNullOrWhiteSpace(nickTextBox.Text) && !nickTextBox.Text.Contains(" "))
             {
-                StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.OpenOrCreate));
-                sw.WriteLine(nickTextBox.Text + " 6000");
-                sw.Close();
+                using (StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.OpenOrCreate)))
+                {
+                    sw.WriteLine(nickTextBox.Text + " 6000");
+                    sw.Close();
+                }
+                
                 Player player = new Player();
                 player.nickname = nickTextBox.Text;
                 player.money = 6000;

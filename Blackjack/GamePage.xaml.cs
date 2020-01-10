@@ -220,7 +220,7 @@ namespace Blackjack
 
                 if (czyOdkryto)
                 {
-                    while (computerCounter <= 16 && currentComputer <= 5)
+                    while (computerCounter <= 16 && currentComputer + 1 <= 5)
                     {
                         currentComputer++;
 
@@ -320,17 +320,22 @@ namespace Blackjack
 
         private void yes_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Truncate));
-            sw.WriteLine(player.nickname + " " + player.money);
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Truncate)))
+            {
+                sw.WriteLine(player.nickname + " " + player.money);
+                sw.Close();
+            }
             mw.MainFrame.Content = new BettingPage(this.player, this.ranking);
         }
 
         private void no_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Truncate));
-            sw.WriteLine(player.nickname + " " + player.money);
-            sw.Close();
+            using (StreamWriter sw = new StreamWriter(new FileStream("player.txt", FileMode.Truncate)))
+            {
+                sw.WriteLine(player.nickname + " " + player.money);
+                sw.Close();
+            }
+            
             mw.MainFrame.Content = new MenuPage();
         }
 
@@ -353,7 +358,7 @@ namespace Blackjack
 
             try
             {
-               sw = new StreamWriter(new FileStream("ranking.txt", FileMode.Truncate));
+                sw = new StreamWriter(new FileStream("ranking.txt", FileMode.Truncate));
 
             }
             catch (FileNotFoundException)
@@ -368,8 +373,11 @@ namespace Blackjack
             }
             sw.Close();
 
-            StreamWriter sw2 = new StreamWriter(new FileStream("player.txt", FileMode.Truncate));
-            sw2.Close();
+            using (StreamWriter sw2 = new StreamWriter(new FileStream("player.txt", FileMode.Truncate)))
+            {
+                sw2.Close();
+            }
+                
 
             mw.MainFrame.Content = new MenuPage();
         }
